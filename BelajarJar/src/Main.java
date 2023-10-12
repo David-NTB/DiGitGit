@@ -5,11 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-class SepuhJugaBelajar{
+class Main{
 
     public static void main(String[] args) throws IOException{
         
-        FileReader fileInput = new FileReader("D:\\Visual Studio\\My Repository\\DiGitGit\\BelajarJar\\fileBaru.txt");
+        FileReader fileInput = new FileReader("BelajarJar/FileBaru.txt");
         BufferedReader bufferedReader = new BufferedReader(fileInput);
         
         Scanner scanner = new Scanner(bufferedReader);
