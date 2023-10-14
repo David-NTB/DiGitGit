@@ -20,14 +20,14 @@ class CRUD{
     BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
     
 
-    void next() throws IOException {
+    private void next() throws IOException {
         System.out.println("\n==============================");
         System.out.print("Tekan ENTER untuk lanjut");
         String temp = userInput.readLine();
         menu();
     }
 
-    void cls(){
+    private void cls(){
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (Exception e) {
@@ -35,7 +35,7 @@ class CRUD{
         }
     }
 
-    void closeAPK(){
+    private void closeAPK(){
         try{
             System.out.println("Menutup aplikasi");
             cls();
@@ -46,7 +46,7 @@ class CRUD{
         
     }
 
-    void menu(){
+    public void menu(){
         try {
             byte ch;
             String temp = "";
@@ -116,7 +116,7 @@ class CRUD{
         }
     }
 
-    void listPanitia() throws IOException {
+    private void listPanitia() throws IOException {
         FileReader fileInput;
         BufferedReader bufferedInput;
 
@@ -158,7 +158,7 @@ class CRUD{
 
     }
     
-    void searchPanitia() throws IOException {
+    private void searchPanitia() throws IOException {
         FileReader fileInput;
         BufferedReader bufferedInput;
 
@@ -187,7 +187,7 @@ class CRUD{
 
     }
 
-    void checkData(String[] keyword) throws IOException {
+    private void checkData(String[] keyword) throws IOException {
         FileReader fileInput = new FileReader("Project CRUD/Database.txt");
         BufferedReader bufferedInput = new BufferedReader(fileInput);
 
