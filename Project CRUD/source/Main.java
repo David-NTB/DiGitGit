@@ -1,9 +1,12 @@
 package source;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 class Main{
@@ -75,22 +78,27 @@ class CRUD{
             switch(ch){
                 case 1:
                     System.out.println("Pilihan 1");
+                    next();
                     break;
 
                 case 2:
-                    System.out.println("Pilihan 2");
+                    searchPanitia();
+                    next();
                     break;
 
                 case 3:
                     listPanitia();
+                    next();
                     break;
 
                 case 4:
                     System.out.println("Pilihan 4");
+                    next();
                     break;
 
                 case 5:
                     System.out.println("Pilihan 5");
+                    next();
                     break;
 
                 case 0:
@@ -128,17 +136,87 @@ class CRUD{
             return;
         }
 
+        System.out.println("| ID\t| Nama Lengkap\t\t| Angkatan | Jabatan\t\t     |");
+        System.out.println("----------------------------------------------------------------------");
 
         String data = bufferedInput.readLine();
-        System.out.println(data);
+        int jmlData = 0;
+        while (data != null) {
+            jmlData++;
+            
+            StringTokenizer stringToken = new StringTokenizer(data, ",");
+            
+            System.out.printf("| %-6s" , stringToken.nextToken());
+            System.out.printf("| %-22s" , stringToken.nextToken());
+            System.out.printf("| %-9s" , stringToken.nextToken());
+            System.out.printf("| %-24s|\n" , stringToken.nextToken());
 
-        StringTokenizer stringToken = new StringTokenizer(data, ",");
+            data = bufferedInput.readLine();
+        }
+
         
-        System.out.println("| ID\t| Nama Lengkap\t| Angkatan\t| Jabatan\t\t|");
-        System.out.println("-----------------------------------------------------------------");
-        System.out.printf("| %s\t" , stringToken.nextToken());
-        System.out.printf("| %s\t" , stringToken.nextToken());
-        System.out.printf("| %s\t\t" , stringToken.nextToken());
-        System.out.printf("| %s\t|\n" , stringToken.nextToken());
+
+    }
+    
+    void searchPanitia() throws IOException {
+        FileReader fileInput;
+        BufferedReader bufferedInput;
+
+        cls();
+
+        System.out.println("==============================");
+        System.out.println("CARI PANITIA");
+        System.out.println("==============================\n");
+
+         try {
+            File file = new File("Project CRUD/Database.txt");
+            
+
+        } catch (Exception e) {
+            System.err.println("Error: Data tidak ada, silahkan tambah file");
+            return;
+        }
+
+        System.out.print("Masukkan kata kunci: ");
+        String keyWord = userInput.readLine();
+        String[] keyWordArr = keyWord.split("\\s");
+        
+        checkData(keyWordArr);
+
+        
+
+    }
+
+    void checkData(String[] keyword) throws IOException {
+        FileReader fileInput = new FileReader("Project CRUD/Database.txt");
+        BufferedReader bufferedInput = new BufferedReader(fileInput);
+
+        String data = bufferedInput.readLine();
+        boolean isExist;
+        int jmlData = 0;
+
+        System.out.println("\n| ID\t| Nama Lengkap\t\t| Angkatan | Jabatan\t\t     |");
+        System.out.println("----------------------------------------------------------------------");
+
+        while (data != null) {
+            isExist = true;
+            
+            for(String keyW:keyword){
+                isExist = isExist && data.toLowerCase().contains(keyW.toLowerCase());
+            }
+
+
+            if (isExist) {
+                StringTokenizer stringToken = new StringTokenizer(data, ",");
+            
+                System.out.printf("| %-6s" , stringToken.nextToken());
+                System.out.printf("| %-22s" , stringToken.nextToken());
+                System.out.printf("| %-9s" , stringToken.nextToken());
+                System.out.printf("| %-24s|\n" , stringToken.nextToken());
+            }
+            
+            data = bufferedInput.readLine();
+        }
+
     }
 }

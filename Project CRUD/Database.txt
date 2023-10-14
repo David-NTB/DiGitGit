@@ -1,3 +1,6 @@
-001,Rafi Hudayan,2023,Ketua Pelaksana
-002,Ahmad Zainuri,2022,Sie Kreatif
-003,Slamet Imron,2020,Sie Perlengkapan
+001,Rafi Rafia,2023,Ketua Pelaksana
+002,Ahmad Bengkel,2022,Sie Kreatif
+003,Slamet Ulekan,2020,Sie Perlengkapan
+004,Saipul Pentol,2021,Sie Komdis
+005,Lilik Adonan,2020,Sie Konsumsi
+006,Bunga Wastafel,2021,Sie Humas
