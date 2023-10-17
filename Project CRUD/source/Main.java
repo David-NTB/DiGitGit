@@ -39,6 +39,7 @@ class CRUD{
         try{
             System.out.println("Menutup aplikasi");
             cls();
+            System.exit(0);
             
         } catch(Exception e){
             System.err.println("Terjadi kesalahan: " + e);
