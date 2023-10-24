@@ -1,5 +1,6 @@
 package source;
 
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -95,7 +96,7 @@ public class Main1 {
         System.out.println("==============================\n");
 
         try {
-            BufferedReader bufferedInput = new BufferedReader(new FileReader("Database.txt"));
+            BufferedReader bufferedInput = new BufferedReader(new FileReader("../Database.txt"));
 
             System.out.println("| ID\t| Nama Lengkap\t\t| Angkatan | Jabatan\t\t     |");
             System.out.println("----------------------------------------------------------------------");
@@ -107,7 +108,6 @@ public class Main1 {
 
                 StringTokenizer stringToken = new StringTokenizer(data, ",");
 
-                System.out.println(jmlData);
                 System.out.printf("| %-6s", stringToken.nextToken());
                 System.out.printf("| %-22s", stringToken.nextToken());
                 System.out.printf("| %-9s", stringToken.nextToken());
