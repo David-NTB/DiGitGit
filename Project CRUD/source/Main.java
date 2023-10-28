@@ -96,7 +96,7 @@ public class Main {
         System.out.println("==============================\n");
 
         try {
-            BufferedReader bufferedInput = new BufferedReader(new FileReader("Database.txt"));
+            BufferedReader bufferedInput = new BufferedReader(new FileReader("database.txt"));
 
             System.out.println("| ID\t| Nama Lengkap\t\t| Angkatan | Jabatan\t\t     |");
             System.out.println("----------------------------------------------------------------------");
