@@ -28,7 +28,7 @@ public class test {
             i++;
         }
 
-        long a = 9999999999999999999999L;
+        long a = 9999999999L;
 
     }
 }

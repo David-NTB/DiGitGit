@@ -1,55 +1,21 @@
 package source;
 
+
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-class Main{
-    public static void main(String[] args) {
-        CRUD cek = new CRUD();
-        cek.menu();
-    }
-}
+public class Main {
+    public static void main(String[] args) throws IOException {
 
-class CRUD{
-    BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
-    
+        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
 
-    private void next() throws IOException {
-        System.out.println("\n==============================");
-        System.out.print("Tekan ENTER untuk lanjut");
-        String temp = userInput.readLine();
-        menu();
-    }
+        byte ch = 1;
 
-    private void cls(){
-        try {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        } catch (Exception e) {
-            System.err.println("Error: " + e);
-        }
-    }
+        while (ch != 0) {
 
-    private void closeAPK(){
-        try{
-            System.out.println("Menutup aplikasi");
-            cls();
-            System.exit(0);
-            
-        } catch(Exception e){
-            System.err.println("Terjadi kesalahan: " + e);
-        }
-        
-    }
-
-    public void menu(){
-        try {
-            byte ch;
             String temp = "";
 
             cls();
@@ -69,155 +35,119 @@ class CRUD{
 
             System.out.print("Pilihan anda(angka): ");
             temp = userInput.readLine();
-            
-            if(temp.equals("")){
-                ch = 9;
-            } else{
-                ch = Byte.parseByte(temp);
+            try {
+                if (temp.equals("")) {
+                    ch = 9;
+                } else {
+                    ch = Byte.parseByte(temp);
+                }
+
+                switch (ch) {
+                    case 1:
+                        System.out.println("Pilihan 1");
+                        next();
+                        break;
+
+                    case 2:
+                        System.out.println("Pilihan 2");
+                        next();
+                        break;
+
+                    case 3:
+                        listPanitia();
+                        next();
+                        break;
+
+                    case 4:
+                        System.out.println("Pilihan 4");
+                        next();
+                        break;
+
+                    case 5:
+                        System.out.println("Pilihan 5");
+                        next();
+                        break;
+
+                    case 0:
+                        closeAPK();
+                        break;
+
+                    default:
+                        msg("Pilihan tidak ada");
+                        next();
+                        break;
+                }
             }
 
-            switch(ch){
-                case 1:
-                    System.out.println("Pilihan 1");
-                    next();
-                    break;
+            catch (Exception e) {
+                msg("Pilihan tidak ada");
+                next();
 
-                case 2:
-                    searchPanitia();
-                    next();
-                    break;
-
-                case 3:
-                    listPanitia();
-                    next();
-                    break;
-
-                case 4:
-                    System.out.println("Pilihan 4");
-                    next();
-                    break;
-
-                case 5:
-                    System.out.println("Pilihan 5");
-                    next();
-                    break;
-
-                case 0:
-                    closeAPK();
-                    break;
-            
-                default:
-                    System.err.println("Message: Pilihan tidak ada");
-                    next();
-                    break;
             }
-
-        } catch (Exception e) {
-            System.err.println("Error: " + e);
         }
     }
 
-    private void listPanitia() throws IOException {
-        FileReader fileInput;
-        BufferedReader bufferedInput;
+    private static void listPanitia() throws IOException {
 
         cls();
-        
+
         System.out.println("==============================");
         System.out.println("LIST SEMUA PANITIA");
         System.out.println("==============================\n");
 
-
         try {
-            fileInput = new FileReader("Project CRUD/Database.txt");
-            bufferedInput = new BufferedReader(fileInput);
+            BufferedReader bufferedInput = new BufferedReader(new FileReader("Database.txt"));
 
-        } catch (Exception e) {
-            System.err.println("Error: Data tidak ada, silahkan tambah file");
-            return;
-        }
+            System.out.println("| ID\t| Nama Lengkap\t\t| Angkatan | Jabatan\t\t     |");
+            System.out.println("----------------------------------------------------------------------");
 
-        System.out.println("| ID\t| Nama Lengkap\t\t| Angkatan | Jabatan\t\t     |");
-        System.out.println("----------------------------------------------------------------------");
+            String data = bufferedInput.readLine();
+            int jmlData = 0;
+            while (data != null) {
+                jmlData++;
 
-        String data = bufferedInput.readLine();
-        int jmlData = 0;
-        while (data != null) {
-            jmlData++;
-            
-            StringTokenizer stringToken = new StringTokenizer(data, ",");
-            
-            System.out.printf("| %-6s" , stringToken.nextToken());
-            System.out.printf("| %-22s" , stringToken.nextToken());
-            System.out.printf("| %-9s" , stringToken.nextToken());
-            System.out.printf("| %-24s|\n" , stringToken.nextToken());
-
-            data = bufferedInput.readLine();
-        }
-
-        
-
-    }
-    
-    private void searchPanitia() throws IOException {
-        FileReader fileInput;
-        BufferedReader bufferedInput;
-
-        cls();
-
-        System.out.println("==============================");
-        System.out.println("CARI PANITIA");
-        System.out.println("==============================\n");
-
-         try {
-            File file = new File("Project CRUD/Database.txt");
-            
-
-        } catch (Exception e) {
-            System.err.println("Error: Data tidak ada, silahkan tambah file");
-            return;
-        }
-
-        System.out.print("Masukkan kata kunci: ");
-        String keyWord = userInput.readLine();
-        String[] keyWordArr = keyWord.split("\\s");
-        
-        checkData(keyWordArr);
-
-        
-
-    }
-
-    private void checkData(String[] keyword) throws IOException {
-        FileReader fileInput = new FileReader("Project CRUD/Database.txt");
-        BufferedReader bufferedInput = new BufferedReader(fileInput);
-
-        String data = bufferedInput.readLine();
-        boolean isExist;
-        int jmlData = 0;
-
-        System.out.println("\n| ID\t| Nama Lengkap\t\t| Angkatan | Jabatan\t\t     |");
-        System.out.println("----------------------------------------------------------------------");
-
-        while (data != null) {
-            isExist = true;
-            
-            for(String keyW:keyword){
-                isExist = isExist && data.toLowerCase().contains(keyW.toLowerCase());
-            }
-
-
-            if (isExist) {
                 StringTokenizer stringToken = new StringTokenizer(data, ",");
-            
-                System.out.printf("| %-6s" , stringToken.nextToken());
-                System.out.printf("| %-22s" , stringToken.nextToken());
-                System.out.printf("| %-9s" , stringToken.nextToken());
-                System.out.printf("| %-24s|\n" , stringToken.nextToken());
+
+                System.out.printf("| %-6s", stringToken.nextToken());
+                System.out.printf("| %-22s", stringToken.nextToken());
+                System.out.printf("| %-9s", stringToken.nextToken());
+                System.out.printf("| %-24s|\n", stringToken.nextToken());
+
+                data = bufferedInput.readLine();
             }
-            
-            data = bufferedInput.readLine();
+
+        } catch (Exception e) {
+            msg("File 'database.txt' tidak ada");
         }
 
     }
+
+    private static void msg(String message) {
+        System.err.println("Message: " + message);
+    }
+
+    private static void cls() throws IOException {
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (Exception e) {
+            msg("" + e);
+        }
+    }
+
+    private static void closeAPK() throws IOException {
+        msg("Menutup aplikasi");
+        cls();
+        System.exit(0);
+    }
+
+    private static void next() throws IOException {
+        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("\n==============================");
+        System.out.print("Tekan ENTER untuk lanjut");
+        String temp = userInput.readLine();
+        System.out.println(temp);
+
+    }
+
 }
