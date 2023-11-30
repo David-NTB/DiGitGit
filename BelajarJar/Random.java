@@ -1,24 +1,41 @@
-public class Random {
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class Random extends JFrame implements KeyListener {
+    private JTextField textField;
+
+    public Random() {
+        textField = new JTextField();
+        textField.addKeyListener(this);
+
+        add(textField);
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
     public static void main(String[] args) {
-        
+        new Random();
     }
-    
-    void cls(){
-        try {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        } catch (Exception e) {
-            System.err.println("Error");
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Implementasi ini dipanggil ketika tombol ditekan dan dilepas.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        // Implementasi ini dipanggil ketika tombol ditekan.
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            System.out.println("Tombol panah kiri ditekan");
         }
     }
-}
 
-class move{
-    int a;
-
-    int right(){
-        for(int i = 1; i > 0; i++){
-            a= 1;
-        }
-        return a;
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // Implementasi ini dipanggil ketika tombol dilepas setelah ditekan.
     }
 }
