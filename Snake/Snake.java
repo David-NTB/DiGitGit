@@ -1,54 +1,64 @@
 public class Snake {
-    static Canvas neo = new Canvas();
+     
     public static void main(String[] args) {
-        showCanvas();
+        Arena arn = new Arena();
+        
+        arn.printArena();
+
     }
 
-    static void showCanvas() {
-        for (int y = 0; y < neo.canvas.length; y++) {
-            for (int x = 0; x < neo.canvas.length; x++) {
-                System.out.print(neo.canvas[y][x]);
-            }
-            System.out.println();
+    void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void clear() {
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
 
-class Canvas {
-    String[][] canvas = new String[25][25];
+class Rattle {
+    Arena canvas = new Arena();
 
-    Canvas() {
-        for (int y = 0; y < canvas.length; y++) {
-            for (int x = 0; x < canvas.length; x++) {
-                canvas[y][x] = "  ";
-            }
-        }
-        border();
-        rattle();
+    Rattle() {
+        canvas.arena[14][14] = " @";
     }
 
-    void border() {
-        for (int y = 0; y < canvas.length; y++) {
-            for (int x = 0; x < canvas.length; x++) {
-                if ((y == 0))
-                    canvas[0][x] = " #";
-                else if ((x == 0))
-                    canvas[y][0] = " #";
-                else if ((y == canvas.length - 1))
-                    canvas[canvas.length - 1][x] = " #";
-                else if ((x == canvas.length - 1))
-                    canvas[y][canvas.length - 1] = " #";
-            }
-        }
-    }
-
-    void rattle() {
-        int x = 10;
-        int y = 10;
-
+    void head(){
         
-        canvas[y][x] = " @";
+    }
+}
 
+class Arena {
+    String[][] arena = new String[25][25];
 
+    Arena(){
+        for(int y = 0; y < 25; y++) {
+            for(int x = 0; x < 25; x++) {
+                if((y==0) || (y==24)) {
+                    this.arena[y][x] = "==";
+                } else if((x==0) || (x==24)) {
+                    this.arena[y][x] = "||";
+                } else {
+                    this.arena[y][x] = "  ";
+                }
+            }
+        }
+    }
+    
+    void printArena() {
+        for(int y = 0; y < 25; y++) {
+            for(int x = 0; x < 25; x++) {
+                System.out.print(this.arena[y][x]);
+            }
+            System.out.println();
+        }
     }
 }

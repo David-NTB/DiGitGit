@@ -1,41 +1,58 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 
-public class Random extends JFrame implements KeyListener {
-    private JTextField textField;
-
-    public Random() {
-        textField = new JTextField();
-        textField.addKeyListener(this);
-
-        add(textField);
-        setSize(300, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
-    }
-
+public class Random {
     public static void main(String[] args) {
-        new Random();
-    }
+        JFrame frame = new JFrame("KeyBinding Example");
+        JPanel panel = new JPanel();
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-        // Implementasi ini dipanggil ketika tombol ditekan dan dilepas.
-    }
+        Action left = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("LEFT");
+                // Tambahkan logika atau tindakan yang diinginkan di sini
+            }
+        };
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        // Implementasi ini dipanggil ketika tombol ditekan.
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            System.out.println("Tombol panah kiri ditekan");
-        }
-    }
+        Action right = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("RIGHT");
+                // Tambahkan logika atau tindakan yang diinginkan di sini
+            }
+        };
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-        // Implementasi ini dipanggil ketika tombol dilepas setelah ditekan.
+        Action up = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("UP");
+                // Tambahkan logika atau tindakan yang diinginkan di sini
+            }
+        };
+
+        Action down = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("DOWN");
+                // Tambahkan logika atau tindakan yang diinginkan di sini
+            }
+        };
+
+        panel.getInputMap().put(KeyStroke.getKeyStroke("LEFT"), "leftAction");
+        panel.getActionMap().put("leftAction", left);
+
+        panel.getInputMap().put(KeyStroke.getKeyStroke("RIGHT"), "rightAction");
+        panel.getActionMap().put("rightAction", right);
+
+        panel.getInputMap().put(KeyStroke.getKeyStroke("UP"), "upAction");
+        panel.getActionMap().put("upAction", up);
+
+        panel.getInputMap().put(KeyStroke.getKeyStroke("DOWN"), "downAction");
+        panel.getActionMap().put("downAction", down);
+
+        frame.getContentPane().add(panel);
+        // frame.setSize(300, 200);
+        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
 }

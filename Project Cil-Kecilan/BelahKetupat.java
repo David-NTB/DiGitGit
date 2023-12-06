@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
-class BelahKetupat{
-    public static void main(String args[]){
-
+class BelahKetupat {
+    public static void main(String[] args) {
+        
         Scanner input = new Scanner(System.in);
 
         int a;
 
+        System.out.println("==============================");
         System.out.println("MEMBUAT POLA BELAH KETUPAT");
         System.out.println("==============================");
         
