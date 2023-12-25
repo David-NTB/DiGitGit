@@ -11,9 +11,13 @@ public class TicTacToe {
 
     char turn = 'X';
 
+    static Scanner input = new Scanner(System.in);
+
+
     public static void main(String[] args) {
         TicTacToe game = new TicTacToe();
         game.play();
+        input.close();
     }
 
     void cls() {
@@ -52,8 +56,6 @@ public class TicTacToe {
     }
 
     void game(char turn) {
-        Scanner input = new Scanner(System.in);
-        
         boolean next = false;
         do {
             System.out.print("Masukkan baris : ");
