@@ -5,7 +5,7 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Sorting {
+public class SortingWithVisual {
     JFrame frame = new JFrame();
     
     ArrayList<Integer> array = new ArrayList<>();
@@ -16,7 +16,7 @@ public class Sorting {
     int frameY = 550;
 
     public static void main(String[] args) throws InterruptedException {
-        Sorting arr = new Sorting();
+        SortingWithVisual arr = new SortingWithVisual();
         arr.createFrame();
 
         arr.AscArray();
@@ -86,8 +86,8 @@ public class Sorting {
                     array.set(j, array.get(j - 1));
                     array.set(j - 1, temp);
                 }
-                generateBar();
             }
+            generateBar();
         }
     }
 
@@ -99,8 +99,8 @@ public class Sorting {
                     array.set(j, array.get(j - 1));
                     array.set(j - 1, temp);
                 }
-                generateBar();
             }
+            generateBar();
         }
     }
 

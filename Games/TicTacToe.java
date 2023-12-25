@@ -1,3 +1,5 @@
+package Games;
+
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -51,7 +53,7 @@ public class TicTacToe {
 
     void game(char turn) {
         Scanner input = new Scanner(System.in);
-
+        
         boolean next = false;
         do {
             System.out.print("Masukkan baris : ");
@@ -68,6 +70,7 @@ public class TicTacToe {
                 next = false;
             }
         } while (next);
+        // input.close();
 
     }
 

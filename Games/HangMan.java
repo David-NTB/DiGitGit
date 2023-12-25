@@ -1,4 +1,4 @@
-package HangMan;
+package Games;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -29,8 +29,8 @@ public class HangMan {
         } while (true);
     }
 
-    private void menu(){
-HangMan set = new HangMan();
+    private void menu() {
+        new HangMan();
         System.out.println("==============================");
         System.out.println("  >> PLAY HANGMAN CLASSIC <<  ");
         System.out.println("==============================");
@@ -45,11 +45,12 @@ HangMan set = new HangMan();
         int ch = input.nextInt();
         System.out.println("\n==============================");
         input.nextLine();
-
-        length = 3 + ((ch-1)*2);
-        if (ch == 5) length = 15;
+        
+        length = 3 + ((ch - 1) * 2);
+        if (ch == 5)
+        length = 15;
     }
-
+    
     private void isWin() {
         if (correct == length) {
             System.out.println("* SELAMAT ANDA BERHASIL *");
@@ -82,7 +83,7 @@ HangMan set = new HangMan();
 
     private void input() {
         System.out.print("Input : ");
-        String guessInput = input.nextLine();
+        String guessInput = input.nextLine().toUpperCase();
         if (guessInput.length() == length) {
             for (int i = 0; i < length; i++) {
                 guess[i] = guessInput.charAt(i);
