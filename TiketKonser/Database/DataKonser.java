@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import TiketKonser.DataModel.Konser;
-import TiketKonser.Database.DataTiket;
+import TiketKonser.DataModel.Tiket;
 
 public class DataKonser {
-    private DataTiket dataTiket = new DataTiket();
-
     private ArrayList<Konser> listKonser = new ArrayList<>(
             Arrays.asList(
                     new Konser(
@@ -27,11 +25,5 @@ public class DataKonser {
 
     public void addKonser(Konser konser){
         listKonser.add(konser);
-    }
-
-    public void showAllKonser(){
-        for (Konser konser : listKonser) {
-            konser.showKonser();
-        }
     }
 }

@@ -1,34 +1,53 @@
 package TiketKonser.DataModel;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import TiketKonser.Database.DataTiket;
-
 public class Tiket {
-    private ArrayList<Tiket> listTiket = new ArrayList<>(
-            Arrays.asList(
-                    new Tiket(
-                            "REGULAR",
-                            "NO SERI",
-                            50,
-                            50000),
-                    new Tiket(
-                            "VIP",
-                            "NO SERI",
-                            50,
-                            50000),
-                    new Tiket(
-                            "LEGEND",
-                            "NO SERI",
-                            50,
-                            50000)));
+    private String jenis;
+    private String noSeri;
+    private int stok;
+    private int harga;
 
-    public ArrayList<Tiket> getListTiket() {
-        return listTiket;
+    public Tiket(String jenis, String noSeri, int stok, int harga) {
+        this.jenis = jenis;
+        this.noSeri = noSeri;
+        this.stok = stok;
+        this.harga = harga;
     }
 
-    public void editListTiket(int index, Tiket tiket) {
-        listTiket.set(index, tiket);
+    public void editTiket(String jenis, int stok, int harga) {
+        this.jenis = jenis;
+        this.stok = stok;
+        this.harga = harga;
+    }
+
+    public String getJenis() {
+        return jenis;
+    }
+
+    public void setJenis(String jenis) {
+        this.jenis = jenis;
+    }
+
+    public String getNoSeri() {
+        return noSeri;
+    }
+
+    public void setNoSeri(String noSeri) {
+        this.noSeri = noSeri;
+    }
+
+    public int getStok() {
+        return stok;
+    }
+
+    public void setStok(int stok) {
+        this.stok = stok;
+    }
+
+    public int getHarga() {
+        return harga;
+    }
+
+    public void setHarga(int harga) {
+        this.harga = harga;
     }
 }

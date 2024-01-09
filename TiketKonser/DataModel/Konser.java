@@ -6,7 +6,7 @@ public class Konser {
     private String namaKonser;
     private ArrayList<Tiket> listTiket;
 
-    Konser(String namaKonser, ArrayList<Tiket> listTiket) {
+    public Konser(String namaKonser, ArrayList<Tiket> listTiket) {
         this.namaKonser = namaKonser;
         this.listTiket = listTiket;
     }
