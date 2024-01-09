@@ -14,4 +14,16 @@ public class Konser {
     public String getNamaKonser() {
         return namaKonser;
     }
+
+    public void setNamaKonser(String namaKonser) {
+        this.namaKonser = namaKonser;
+    }
+
+    public ArrayList<DataTiket> getListTiket() {
+        return listTiket;
+    }
+
+    public void setListTiket(ArrayList<DataTiket> listTiket) {
+        this.listTiket = listTiket;
+    }
 }

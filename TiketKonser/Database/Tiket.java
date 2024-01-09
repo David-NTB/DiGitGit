@@ -19,11 +19,35 @@ public class Tiket {
         this.harga = harga;
     }
 
-    public void showTiket(){
-        System.out.println();
-        System.out.println("Jenis  : " + this.jenis);
-        System.out.println("noSeri : " + this.noSeri);
-        System.out.println("Stok   : " + this.stok);
-        System.out.println("Harga  : " + this.harga);
+    public String getJenis() {
+        return jenis;
+    }
+
+    public void setJenis(String jenis) {
+        this.jenis = jenis;
+    }
+
+    public String getNoSeri() {
+        return noSeri;
+    }
+
+    public void setNoSeri(String noSeri) {
+        this.noSeri = noSeri;
+    }
+
+    public int getStok() {
+        return stok;
+    }
+
+    public void setStok(int stok) {
+        this.stok = stok;
+    }
+
+    public int getHarga() {
+        return harga;
+    }
+
+    public void setHarga(int harga) {
+        this.harga = harga;
     }
 }
