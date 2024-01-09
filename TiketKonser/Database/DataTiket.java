@@ -1,12 +1,12 @@
 package TiketKonser.Database;
 
-public class Tiket {
+public class DataTiket {
     private String jenis;
     private String noSeri;
     private int stok;
     private int harga;
 
-    Tiket(String jenis, String noSeri, int stok, int harga) {
+    DataTiket(String jenis, String noSeri, int stok, int harga) {
         this.jenis = jenis;
         this.noSeri = noSeri;
         this.stok = stok;

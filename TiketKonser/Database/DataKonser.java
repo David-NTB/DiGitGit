@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import TiketKonser.DataModel.Konser;
+import TiketKonser.Database.DataTiket;
 
 public class DataKonser {
     private DataTiket dataTiket = new DataTiket();

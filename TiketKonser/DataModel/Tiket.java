@@ -3,9 +3,9 @@ package TiketKonser.DataModel;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import TiketKonser.Database.Tiket;
+import TiketKonser.Database.DataTiket;
 
-public class DataTiket {
+public class Tiket {
     private ArrayList<Tiket> listTiket = new ArrayList<>(
             Arrays.asList(
                     new Tiket(

@@ -3,32 +3,32 @@ package TiketKonser.UserView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import TiketKonser.Database.Tiket;
+import TiketKonser.Database.DataTiket;
 
 public class Menu1 {
-    private ArrayList<Tiket> listTiket = new ArrayList<>(
+    private ArrayList<DataTiket> listTiket = new ArrayList<>(
             Arrays.asList(
-                    new Tiket(
+                    new DataTiket(
                             "REGULAR",
                             "NO SERI",
                             50,
                             50000),
-                    new Tiket(
+                    new DataTiket(
                             "VIP",
                             "NO SERI",
                             50,
                             50000),
-                    new Tiket(
+                    new DataTiket(
                             "LEGEND",
                             "NO SERI",
                             50,
                             50000)));
 
-    public ArrayList<Tiket> getListTiket() {
+    public ArrayList<DataTiket> getListTiket() {
         return listTiket;
     }
 
-    public void editListTiket(int index, Tiket tiket) {
+    public void editListTiket(int index, DataTiket tiket) {
         listTiket.set(index, tiket);
     }
 }

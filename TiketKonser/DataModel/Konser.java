@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Konser {
     private String namaKonser;
-    private ArrayList<DataTiket> listTiket;
+    private ArrayList<Tiket> listTiket;
 
-    Konser(String namaKonser, ArrayList<DataTiket> listTiket) {
+    Konser(String namaKonser, ArrayList<Tiket> listTiket) {
         this.namaKonser = namaKonser;
         this.listTiket = listTiket;
     }
@@ -19,11 +19,11 @@ public class Konser {
         this.namaKonser = namaKonser;
     }
 
-    public ArrayList<DataTiket> getListTiket() {
+    public ArrayList<Tiket> getListTiket() {
         return listTiket;
     }
 
-    public void setListTiket(ArrayList<DataTiket> listTiket) {
+    public void setListTiket(ArrayList<Tiket> listTiket) {
         this.listTiket = listTiket;
     }
 }
