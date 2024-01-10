@@ -1,13 +1,15 @@
 package TiketKonser.UserView;
 
-import java.util.Scanner;
+import static TiketKonser.Util.Util.pressEnter;
 
-import TiketKonser.Database.DataKonser;
+import TiketKonser.Util.Util;
+
 import TiketKonser.ViewModel.ViewKonser;
+import TiketKonser.ViewModel.ViewTiket;
 
 public class Menu1 {
-    Scanner input = new Scanner(System.in);
-    ViewKonser konser = new ViewKonser();
+    ViewKonser viewKonser = new ViewKonser();
+    ViewTiket viewTiket = new ViewTiket();
 
     public void run() {
         menu1();
@@ -18,20 +20,28 @@ public class Menu1 {
         int userInput;
 
         while (menu1) {
+            Util.cls();
             System.out.println("MENU 1");
             System.out.println("1. Lihat Semua Konser");
             System.out.println("2. Lihat Semua Tiket");
-            System.out.println("3. Lihat Report");
-
+            System.out.println("3. Lihat Tiket");
+            System.out.println();
             System.out.print("Pilihan : ");
-            userInput = input.nextInt();
+            userInput = Util.inputInt();
+
+            Util.pressEnter();
+            Util.cls();
 
             switch (userInput) {
                 case 1:
-                    showKonser();
+                    showAllKonser();
                     break;
 
                 case 2:
+                    showAllTiket();
+                    break;
+
+                case 3:
                     showTiket();
                     break;
 
@@ -44,15 +54,27 @@ public class Menu1 {
                     break;
             }
         }
-
     }
 
     // method menu
-    private void showKonser(){
-        konser.showAllKonser();
+    private void showAllKonser(){
+        viewKonser.showAllKonser();
+        Util.pressEnter();
+    }
+
+    private void showAllTiket(){
+        viewKonser.showAllTiketKonser();
+        Util.pressEnter();
     }
 
     private void showTiket(){
+        viewKonser.showAllKonser();
+        System.out.print("Pilih nama konser : ");
+
+        String namaKonser = Util.inputLine();
+
+        viewTiket.showAllTiket(viewKonser.selectKonser(namaKonser));
+        Util.pressEnter();
 
     }
 }

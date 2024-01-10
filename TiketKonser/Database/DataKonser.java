@@ -7,6 +7,8 @@ import TiketKonser.DataModel.Konser;
 
 public class DataKonser {
 
+        DataTiket dataTiket;
+
     private ArrayList<Konser> listKonser = new ArrayList<>(
             Arrays.asList(
                     new Konser(
@@ -17,7 +19,8 @@ public class DataKonser {
                             new ArrayList<DataTiket>()),
                     new Konser(
                             "Superman is Dead",
-                            new ArrayList<DataTiket>())));
+                            new ArrayList<DataTiket>()))
+                            );
 
     public ArrayList<Konser> getListKonser() {
         return listKonser;
@@ -37,5 +40,9 @@ public class DataKonser {
 
     public Konser getTiket(String namaKonser){
         return listKonser.stream().filter(cekTiket->cekTiket.getNamaKonser().equals(namaKonser)).findFirst().orElse(null);
+    }
+
+    public ArrayList<DataTiket> getDataTiket(int index){
+        return listKonser.get(index).getListTiket();
     }
 }
