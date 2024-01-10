@@ -25,9 +25,8 @@ public class ViewKonser {
         }
     }
 
-    public Konser selectKonser(String namaKonser){
-        return dataKonser.getTiket(namaKonser);
+    public Konser selectKonser(int index){
+        return dataKonser.getListKonser().get(index);
     }
-
 
 }

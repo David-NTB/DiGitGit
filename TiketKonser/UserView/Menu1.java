@@ -1,7 +1,5 @@
 package TiketKonser.UserView;
 
-import static TiketKonser.Util.Util.pressEnter;
-
 import TiketKonser.Util.Util;
 
 import TiketKonser.ViewModel.ViewKonser;
@@ -71,9 +69,11 @@ public class Menu1 {
         viewKonser.showAllKonser();
         System.out.print("Pilih nama konser : ");
 
-        String namaKonser = Util.inputLine();
+        int indexKonser = Util.inputInt()-1;
 
-        viewTiket.showAllTiket(viewKonser.selectKonser(namaKonser));
+        viewTiket.showAllTiket(viewKonser.selectKonser(indexKonser));
+        System.out.println();
+
         Util.pressEnter();
 
     }
