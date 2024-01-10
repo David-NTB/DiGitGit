@@ -2,11 +2,13 @@ package TiketKonser.DataModel;
 
 import java.util.ArrayList;
 
+import TiketKonser.Database.DataTiket;
+
 public class Konser {
     private String namaKonser;
-    private ArrayList<Tiket> listTiket;
+    private ArrayList<DataTiket> listTiket;
 
-    public Konser(String namaKonser, ArrayList<Tiket> listTiket) {
+    public Konser(String namaKonser, ArrayList<DataTiket> listTiket) {
         this.namaKonser = namaKonser;
         this.listTiket = listTiket;
     }
@@ -19,11 +21,11 @@ public class Konser {
         this.namaKonser = namaKonser;
     }
 
-    public ArrayList<Tiket> getListTiket() {
+    public ArrayList<DataTiket> getListTiket() {
         return listTiket;
     }
 
-    public void setListTiket(ArrayList<Tiket> listTiket) {
+    public void setListTiket(ArrayList<DataTiket> listTiket) {
         this.listTiket = listTiket;
     }
 }

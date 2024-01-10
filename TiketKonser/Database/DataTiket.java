@@ -28,7 +28,19 @@ public class DataTiket {
         return listTiket;
     }
 
-    public void editListTiket(int index, Tiket tiket) {
+    public void addTiket(Tiket tiket){
+        listTiket.add(tiket);
+    }
+
+    public void editTiket(int index, Tiket tiket) {
         listTiket.set(index, tiket);
+    }
+
+    public void deleteTiket(Tiket tiket){
+        listTiket.remove(tiket);
+    }
+
+    public Tiket getTiket(String jenis){
+        return listTiket.stream().filter(cekTiket->cekTiket.getJenis().equals(jenis)).findFirst().orElse(null);
     }
 }
