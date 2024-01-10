@@ -29,7 +29,7 @@ public class DataKonser {
         }
 
         public ArrayList<Tiket> getListTiket() {
-                return listKonser.get(0).getListTiket();
+                return getKonser(0).getListTiket();
         }
 
         public void addKonser(Konser konser) {
@@ -40,7 +40,7 @@ public class DataKonser {
                 listKonser.set(index, konser);
         }
 
-        public void deleteTiket(Konser konser) {
+        public void deleteKonser(Konser konser) {
                 listKonser.remove(konser);
         }
 

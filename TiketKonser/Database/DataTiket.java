@@ -10,7 +10,7 @@ public class DataTiket {
         ArrayList<Tiket> listTiket;
 
         public ArrayList<Tiket> newListTiket() {
-                return listTiket = new ArrayList<Tiket>(
+                return this.listTiket = new ArrayList<Tiket>(
                         Arrays.asList(
                                 new Tiket(
                                         "REGULAR",
@@ -41,8 +41,7 @@ public class DataTiket {
                 listTiket.remove(tiket);
         }
 
-        public Tiket getTiket(String jenis) {
-                return listTiket.stream().filter(cekTiket -> cekTiket.getJenis().equals(jenis)).findFirst()
-                                .orElse(null);
-        }
+        // public Tiket getTiket(int index) {
+        //         return dataKonser.getListTiket().get(index);
+        // }
 }

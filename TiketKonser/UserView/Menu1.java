@@ -6,8 +6,8 @@ import TiketKonser.ViewModel.ViewKonser;
 import TiketKonser.ViewModel.ViewTiket;
 
 public class Menu1 {
-    ViewKonser viewKonser = new ViewKonser();
-    ViewTiket viewTiket = new ViewTiket();
+    final ViewKonser viewKonser = new ViewKonser();
+    final ViewTiket viewTiket = new ViewTiket();
 
     public void run() {
         menu1();
@@ -23,6 +23,8 @@ public class Menu1 {
             System.out.println("1. Lihat Semua Konser");
             System.out.println("2. Lihat Semua Tiket");
             System.out.println("3. Lihat Tiket");
+            System.out.println("4. Edit Tiket");
+            System.out.println("0. Keluuar");
             System.out.println();
             System.out.print("Pilihan : ");
             userInput = Util.inputInt();
@@ -41,6 +43,10 @@ public class Menu1 {
 
                 case 3:
                     showTiket();
+                    break;
+
+                case 4:
+                    editTiket();
                     break;
 
                 case 0:
@@ -77,4 +83,21 @@ public class Menu1 {
         Util.pressEnter();
 
     }
+
+    private void editTiket(){
+        System.out.print("index : ");
+        int index = Util.inputInt();
+        
+        System.out.print("jenis : ");
+        String jenis = Util.inputLine();
+        System.out.print("noSeri : ");
+        String noSeri = Util.inputLine();
+        System.out.print("stok : ");
+        int stok = Util.inputInt();
+        System.out.print("harga : ");
+        int harga = Util.inputInt();
+
+        viewTiket.editTiket(index, jenis, noSeri, stok, harga);
+    }
+
 }
