@@ -7,12 +7,12 @@ import java.util.Scanner;
 public class HangMan {
     Random random = new Random();
     Scanner input = new Scanner(System.in);
-    int length;
-    char[] check;
-    char[] secret;
-    char[] guess;
-    int correct;
-    int count = 0;
+    int length; // panjang huruf
+    char[] check; // tempat huruf benar/salah
+    char[] secret; // huruf tersembunyi
+    char[] guess; // huruf input
+    int correct; // jumlah tebakan benar
+    int count = 0; // jumlah menebak
 
     public static void main(String[] args) {
         HangMan play = new HangMan();
@@ -45,12 +45,12 @@ public class HangMan {
         int ch = input.nextInt();
         System.out.println("\n==============================");
         input.nextLine();
-        
+
         length = 3 + ((ch - 1) * 2);
         if (ch == 5)
-        length = 15;
+            length = 15;
     }
-    
+
     private void isWin() {
         if (correct == length) {
             System.out.println("* SELAMAT ANDA BERHASIL *");
