@@ -59,10 +59,10 @@ public class TicTacToe {
         boolean next = false;
         do {
             System.out.print("Masukkan baris : ");
-            int row = input.nextInt();
+            int row = input.nextInt()-1;
 
             System.out.print("Masukkan kolom : ");
-            int col = input.nextInt();
+            int col = input.nextInt()-1;
 
             if (arena[col][row] != ' ') {
                 System.out.println("\nBagian sudah terisi\nSilahkan masukkan lagi\n");
